@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="czcionka.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Margin="20"
+            Spacing="25">
+            <Label
+                Text="Właściowości czciontki"
+                TextColor="White"
+                BackgroundColor="#558b2f"
+                FontSize="30"
+                FontAttributes="Bold"
+                />
+
+            <HorizontalStackLayout>
+                <Label
+             Text="Rozmiar:"
+                FontSize="20"
+                TextColor="LightGray"
+                />
+                <Label
+                 x:Name="SliderValueLabel"
+                 FontSize="20"
+                 TextColor="LightGray"
+                 Text="{Binding Source={x:Reference Slider1}, Path=Value, StringFormat=' {0:F0}'}"
+                 />
+                </HorizontalStackLayout>
+                
+                <Slider x:Name="Slider1"
+                Maximum="40"
+                Minimum="0"
+                />
+
+            <Label
+                Text="Dzień dobry"
+                x:Name="label1"
+               BindingContext="{x:Reference Slider1}"
+               FontSize="{Binding Path=Value}"
+
+                />
+
+            <Button
+                x:Name="Btton1"
+                Text=">>>"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                BackgroundColor="#558b2f"
+                Clicked="OnCounterClicked"
+                />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
